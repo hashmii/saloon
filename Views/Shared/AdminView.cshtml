@@ -1,0 +1,76 @@
+﻿@{
+    
+    ViewBag.Tittle = "AdminView";
+}
+
+<script>
+    jQuery(function () {
+        var items = [];
+        jQuery('#validate').click(function () {
+            jQuery.getJSON("/Account/Validatetheuser", { "name": jQuery('#UserName').val() }, function (successResult) {
+                /*if (successResult == true) {
+                    alert("Invalid");
+                }
+                else
+                {
+                    alert("Valid");
+                }*/
+                
+                $.each(successResult, function (key, val) {
+                    //$("#reh").text();
+                    items.push('<li id="' + key + '">' + val+ '</li>');
+                });
+                $('<ul/>', {
+                    'class': 'my-new-list',
+                    html: items.join('')
+                }).appendTo('body');
+            });
+        });
+    });
+</script>
+<link href="~/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+
+<div class="col-md-3">
+    <form>
+        <ul class="nav nav-pills nav-stacked" style="border:solid">
+        <li role="presentation" class="active"><a href="#">DashBoard</a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">View Users</a></li>
+        <li role="presentation"><a href="#">View Graphs</a></li>
+        <li role="presentation"><a href="#">View Income</a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">View Users</a></li>
+        <li role="presentation"><a href="#">View Graphs</a></li>
+        <li role="presentation"><a href="#">View Income</a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">View Users</a></li>
+        <li role="presentation"><a href="#">View Graphs</a></li>
+        <li role="presentation"><a href="#">View Income</a></li>
+        <li role="presentation"><a href="#">Profile</a></li>
+        <li role="presentation"><a href="#">View Users</a></li>
+        <li role="presentation"><a href="#">View Graphs</a></li>
+        <li role="presentation"><a href="#">View Income</a></li>
+        </ul>
+
+
+    </form>
+</div>
+<div class="col-md-9">
+    <nav class="navbar navbar-default navbar-fixed-top">
+     <div class="container">
+    <form class="navbar-form navbar-right" action="/Account/ Validatetheuser" role="search">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search">
+  </div>
+  <button id="validate" type="submit" class="btn btn-default" id="search" name="search">Submit</button>   
+</form>
+   </div>
+   </nav>
+   </div>
+<div>
+    @{
+        RenderBody();   
+    }
+    }
+</div>

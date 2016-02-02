@@ -1,0 +1,122 @@
+﻿@{
+    string strname = ViewBag.uname;
+}
+
+@{
+    int i;
+}
+@{
+    var session = Session["UserName"];
+    if (session.ToString() == "Default")
+    {
+        i = 0;
+    }
+}
+@{
+    /*if (@Session["UserName"].ToString().Equals( "Default"))
+    {
+        i = 0;
+    }
+    else if (@Session["UserName"].ToString() == "1")
+    {
+        i = 1;
+    }*/
+    
+    
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <title></title>
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:brown" >
+   <nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="#" class="pull-left"><img src="/images/lo.png"></a>
+    </div>
+      <script>
+          //document.getElementById("#Logout").hidden();
+          var x = $('#' + '@(ViewBag.struname)').val();
+          $(function () {
+              // $("#Logout").visible=false;
+              /* if (uname != null) {
+                  $("ul li:has('a'):contains('Logout')").show();
+                  $("ul li:has('a'):contains('Login')").hide();
+              }
+              else {
+                  $("ul li:has('a'):contains('Logout')").hide();
+                  $("ul li:has('a'):contains('Login')").show();
+              }*/
+              if (Session["UserName"].ToString() == "Default") {
+                  $("ul li:has('a'):contains('Logout')").hide();
+
+              }
+              else if (Session["UserName"].ToString() == "1") {
+                  i = 1;
+              }
+               if(i == 0)
+               {
+   
+                       $("ul li:has('a'):contains('Logout')").hide();
+   
+   
+               }
+               else
+               {
+                   $("ul li:has('a'):contains('Logout')").show();
+                   $("ul li:has('a'):contains('Login')").hide();
+   
+   
+               }
+
+
+          });
+    </script>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="font-family:'Buxton Sketch'; font-size:large" >
+      <ul class="nav navbar-nav navbar-right" >
+        <li><a href="/Home/Index">Home</a></li>
+        <li><a href="/Account/Contact">Contact</a></li>
+        <li><a href="/Account/Booking">Booking</a></li>
+     
+      @if(strname==null)
+      {
+          
+        <li><a href="/Account/Login" >Login</a></li>
+      }
+      @if (strname!=null)
+      {
+          <li> <a href="/Account/Logout" >Logout</a></li>
+      }
+        <li><a href="/Account/SignUP">SignUp</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+    <div id="footer" class="container" >
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="navbar-inner navbar-content-center">
+            <p class="text-muted credit"></p>
+        </div>
+    </nav>
+</div>
+
+
+    <div>
+        @RenderBody();
+    </div>
+</body>
+</html>

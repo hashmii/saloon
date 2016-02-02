@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Booking";
+     Layout="~/Views/shared/View2.cshtml";
+}
+}
+
+<div class="col-md-4">
+</div>
+
+<div class="col-md-6 ">
+
+    <!--first function second controller!-->
+     @using (Html.BeginForm("Booking", "Account", FormMethod.Post, new { style = "background-color:wheat" }))
+     { 
+               <br />
+               <br />
+               <label for="firstName">UserName:</label>
+               @Html.TextBox("username", "UserName", new { @class = "form-control" })
+               <br />
+                <label for="Contact">Contact No:</label>
+               @Html.TextBox("contact", "Phone No", new { @class = "form-control" })
+               <br />
+               <label for="Time">Time:</label>
+
+               @Html.TextBox("time", "Time", new { @class = "form-control" })
+               <br />
+               <input type="submit" value="Booking" class="btn btn-default" />    
+     }
+
+    </div>
+       
+<div class="col-md-2"></div>

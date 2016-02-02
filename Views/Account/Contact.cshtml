@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/View2.cshtml";
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Contact</title>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <style>
+        #tbody {
+            margin-left: 80px;
+            margin-right: 80px;
+            padding-top:50px;
+        }
+        #googleMap3{
+            float:right;
+            margin-top:115px;
+            margin-right:100px;
+        }
+
+       
+    </style>
+</head>
+
+<div class="col-md-4">
+</div>
+
+<div class="col-md-6 ">
+
+        <br />
+        <br />
+        <br />
+        <br />
+    <div class="panel panel-default" style="background-color:wheat">
+            <div class="panel-body">
+                <div class="page-header" style="margin-top:5px; font-style:oblique">
+                    <h3 >Contact Us</h3>
+                </div>
+
+                <!--Form Starting-->
+                <form  class="form-horizontal" action="/Account/SendMail" method="post"  >
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                <input id="EName" name="EName" type="text" class="form-control" placeholder="Enter your Name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                <input id="EEmail" name="EEmail" type="email" class="form-control" placeholder="Email">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                <input id="EPhone" name="EPhone" type="text" class="form-control" placeholder="*PhoneNumber">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                         <div class="col-sm-10">
+                            <div class="input-group">
+                                <textarea class="form-control" name="Emessage" rows="5" placeholder="*Message" id="Emessage"></textarea>
+                                <span class="text-danger" style="color:red; font-size:medium" id="four1"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                <button type="button" class="btn btn-default" id="sub">Submit</button>
+                                <span class="text-danger" style="color:red; font-size:medium" id="four"></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<div class="col-md-2"></div>

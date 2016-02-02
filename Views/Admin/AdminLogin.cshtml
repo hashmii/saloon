@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "AdminLogin";
+}
+
+
+
+<link href="~/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<div class="col-md-3"></div>
+<div class="col-md-6">
+    <br />
+    <br />
+    <br />
+    <h2>AdminLogin</h2>
+
+
+    @using (Html.BeginForm("AdminValidate","Admin", FormMethod.Post))
+          { 
+
+               <label for="firstName">First Name:</label>
+               <br />
+               @Html.TextBox("AEmail", "Email", new { @class = "form-control" })
+               <br /><br />
+               <label for="lastName">Last Name:</label>
+               <br />
+               @Html.Password("APassword","Password",new { @class = "form-control" })
+               
+               <br /><br />
+               <input type="submit" value="Register" class="btn btn-default" />    
+          }
+
+    </div>
+
+<div class="col-md-3"></div>
